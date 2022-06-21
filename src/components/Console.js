@@ -12,11 +12,13 @@ export default function Console () {
   ]);
 
   function executeInput(input){
-    //use commands in /src/commands
     const commandAndArgs = input.split(' ')
 
     if (commandAndArgs[0] === "clear") setTerminalLineData([])
-    else setTerminalLineData([... terminalLineData, {type: LineType.Output, value: commands.get(commandAndArgs[0])(commandAndArgs.slice(1).join(" "))}])
+    else setTerminalLineData([...terminalLineData, ...[
+      {type: LineType.Output, value: '$ ' + input},
+      {type: LineType.Output, value: commands.get(commandAndArgs[0])(commandAndArgs.slice(1).join(" "))}
+    ]])
   }
 
 
