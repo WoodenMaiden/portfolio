@@ -1,10 +1,19 @@
-import commandes from "./index"
+import { Typography, List, Box } from "@mui/material"
+import commands from "./index"
 
 function help(input) {
 
-    function parse(input) {
-        if (!input) return "List of commands here"
-        return (!commandes.get(input)) ? "❌ Not such command" : commandes.get(input.split(' ')[0]).help
+    function parse(input) { 
+        const all = Array.from(commands.keys())
+        if (!input) return (
+            <>
+                <Typography>List of commands here</Typography>
+                <List>
+                    {all.map((value) => <Box key={value} sx={{display: "flex", gap: "20px", flexWrap: "wrap", flexDirection: "row"}}><Typography sx={{cursor: "pointer", textDecoration: "underline"}}>{value}</Typography><Typography> {commands.get(value).help}</Typography></Box>)}
+                </List>
+            </>
+        )
+        return (!commands.get(input)) ? "❌ Not such command" : commands.get(input.split(' ')[0]).help
     }
 
     return parse(input)

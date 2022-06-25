@@ -1,15 +1,17 @@
-import { List, Card, Typography } from '@mui/material'
-import { GitHub } from '@mui/icons-material'
+import { List, Card } from '@mui/material'
 function repo(input) {
 
     function parse(input) {
+        const style= {
+            backgroundColor: "#cfcaca",
+        }
         return (
             <List>
-                <Card variant="outlined">
-                    <Typography variant='body2'><GitHub /><a href='https://github.com/WoodenMaiden'>WoodenMaiden</a></Typography>
+                <Card sx={style} variant="outlined">
+                    GitHub🐙: <a href='https://github.com/WoodenMaiden'>WoodenMaiden</a>
                 </Card>
-                <Card variant="outlined">
-                    <Typography variant='body2'>GitLab: <a href='https://gitlab.com/WoodenMaiden'>WoodenMaiden</a></Typography>
+                <Card sx={style} variant="outlined">
+                    GitLab🦊: <a href='https://gitlab.com/WoodenMaiden'>WoodenMaiden</a>
                 </Card>
             </List>
         )

@@ -6,8 +6,8 @@ function whoami(input) {
         return (
         <Container>
             <Stack sx={{ display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                <Stack sx={{ display: "flex", flexDirection: "row"}}>
-                    <Avatar alt="Yann POMIE" src={'/assets/pfp.jpeg'}  sx={{ backgroundColor: "blue" }}>YP</Avatar>
+                <Stack sx={{ marginBottom : "20px",display: "flex", flexDirection: "row", alignItems: "center", gap: "20px"}}>
+                    <Avatar alt="Yann POMIE" src={'/assets/pfp.jpeg'} sx={{ width: "100px", height: "100px", backgroundColor: "blue" }}>YP</Avatar>
                     <Typography>Yann POMIE</Typography>
                 </Stack>
                 <Typography variant="body1">
@@ -23,7 +23,7 @@ function whoami(input) {
                 <ul>
                     <Typography variant="body1">
                         <li>Get my contacts via the <code>contact</code> command</li>
-                        <li>Get my git and gitlab repositories via the <code>repo</code> command</li>
+                        <li>Get my github and gitlab repositories via the <code>repo</code> command</li>
                     </Typography>
                 </ul>
             </Stack>

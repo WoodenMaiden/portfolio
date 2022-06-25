@@ -7,8 +7,8 @@ import "./Console.css"
 
 export default function Console () {
   const [terminalLineData, setTerminalLineData] = useState([
-    {type: LineType.Output, value: "Welcome!"},
-    {type: LineType.Output, value: "Enter 'help' below to see available commands, a contextual menu can also be used (WIP)"},
+    {type: LineType.Output, value: "Hello there 👋! Welcome to my portfolio."},
+    {type: LineType.Output, value: "Enter 'help' below to see available commands."},
   ]);
 
   function executeInput(input){

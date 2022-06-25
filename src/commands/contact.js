@@ -1,24 +1,29 @@
-import { Card, Typography, List, Avatar } from "@mui/material";
+import { Card, List, Avatar } from "@mui/material";
 function contact(input) {
 
     function parse(input) {
         const toPrompt = [];
         const values = input.split(" ");
+        const style= {
+            backgroundColor: "#cfcaca",
+        }
         
         const components = {
             mail: (
-                <List>
-                    <Card variant="outlined">Personnal: <a href='mailto:yann.pomie@laposte.net'>yann.pomie@laposte.net</a></Card>
-                    <Card variant="outlined">Professional: <a href='mailto:yann.pomie@ird.fr'>yann.pomie@ird.fr</a></Card>
-                    <Card variant="outlined">Scholar: <a href='mailto:yann.pomie@etu.umontpellier.fr'>yann.pomie@etu.umontpellier.fr</a></Card>
-                </List>
+                <>
+                    <Card sx={style} key="per" variant="outlined">Personnal: <a href='mailto:yann.pomie@laposte.net'>yann.pomie@laposte.net</a></Card>
+                    <Card sx={style} key="pro" variant="outlined">Professional: <a href='mailto:yann.pomie@ird.fr'>yann.pomie@ird.fr</a></Card>
+                    <Card sx={style} key="sch" variant="outlined">Scholar: <a href='mailto:yann.pomie@etu.umontpellier.fr'>yann.pomie@etu.umontpellier.fr</a></Card>
+                </>
             ),
-            linkedin: <Card variant="outlined">
+            linkedin: <Card sx={style} variant="outlined"  key={"cardLD"}>
                 <a href='https://www.linkedin.com/in/yann-pomie-732421204/'>Linkedin</a>
             </Card>,
-            discord: <Card variant="outlined" sx={{display: "flex", flexDirection: "row"}}>
-                <Avatar  sx={{ backgroundColor: "grey" }}>YP</Avatar>
-                <Typography variant="body2">Toupastis#8667</Typography>
+            discord: <Card  variant="outlined" key={"cardDiscord"} sx={{...style, display: "flex", flexDirection: "row", alignItems: "center", gap: "10px"}}>
+                <Avatar src="/assets/discord.png" sx={{ backgroundColor: "grey" }}>
+                    YP
+                </Avatar>
+                Toupastis#8667
             </Card>
         }
 
@@ -26,6 +31,8 @@ function contact(input) {
             if (!components.hasOwnProperty(v) || toPrompt.includes(components[v])) continue;
             toPrompt.push(components[v]);
         }
+
+        if ( !toPrompt.length ) toPrompt.push(Object.values(components));
 
         return (
             <List className="contactList">
