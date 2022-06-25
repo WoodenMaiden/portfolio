@@ -1,4 +1,4 @@
-import { Container, Box, Avatar, Stack, Typography } from '@mui/material'
+import { Container, Avatar, Stack, Typography } from '@mui/material'
 
 
 function whoami(input) {
