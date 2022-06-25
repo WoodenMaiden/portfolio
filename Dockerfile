@@ -2,7 +2,7 @@ FROM node:latest as build
 
 COPY . /build
 WORKDIR /build
-RUN npm i 
+RUN npm i --force
 RUN npm run build
 
 FROM nginx:latest
