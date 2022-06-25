@@ -1,6 +1,5 @@
 import { Container, Avatar, Stack, Typography } from '@mui/material'
 
-
 function whoami(input) {
 
     function parse(input) {
@@ -8,7 +7,7 @@ function whoami(input) {
         <Container>
             <Stack sx={{ display: "flex", flexDirection: "column", justifyContent: "center"}}>
                 <Stack sx={{ display: "flex", flexDirection: "row"}}>
-                    <Avatar sx={{ backgroundColor: "blue" }}>YP</Avatar>
+                    <Avatar alt="Yann POMIE" src={'/assets/pfp.jpeg'}  sx={{ backgroundColor: "blue" }}>YP</Avatar>
                     <Typography>Yann POMIE</Typography>
                 </Stack>
                 <Typography variant="body1">
@@ -20,12 +19,13 @@ function whoami(input) {
                     Besides code and linux, I am a mostly a huge fan of video games such as League of Legends, Warframe or even the XCOM franchise. I also listen to a lot of heavy-metal and rock-n-roll, My favourite bands are <a href='https://www.youtube.com/watch?v=WmPTxrJ-kHI'>Iron Maiden</a>, <a href='https://www.youtube.com/watch?v=MlzTET_8SQg'>Motörhead</a>, <a href='https://www.youtube.com/watch?v=l482T0yNkeo'>ACDC</a> and <a href='https://www.youtube.com/watch?v=o1tj2zJ2Wvg'>Guns N' Roses</a>.
                     <br />
                     If you wish to know more about me you can:
-                    <ul>
+                </Typography>
+                <ul>
+                    <Typography variant="body1">
                         <li>Get my contacts via the <code>contact</code> command</li>
                         <li>Get my git and gitlab repositories via the <code>repo</code> command</li>
-                        <li>Get my projects via the <code>project</code> command</li>
-                    </ul>
-                </Typography>
+                    </Typography>
+                </ul>
             </Stack>
         </Container>
         )

@@ -15,6 +15,10 @@ export default function Console () {
     const commandAndArgs = input.split(' ')
 
     if (commandAndArgs[0] === "clear") setTerminalLineData([])
+    else if (!commands.has(commandAndArgs[0])) setTerminalLineData([...terminalLineData, ...[
+      {type: LineType.Output, value: '$ ' + input},
+      {type: LineType.Output, value: "Command not found"},
+    ]])
     else setTerminalLineData([...terminalLineData, ...[
       {type: LineType.Output, value: '$ ' + input},
       {type: LineType.Output, value: commands.get(commandAndArgs[0])(commandAndArgs.slice(1).join(" "))}
