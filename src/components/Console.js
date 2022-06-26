@@ -12,12 +12,13 @@ export default function Console () {
   ]);
 
   function executeInput(input){
-    const commandAndArgs = input.split(' ')
+    const commandAndArgs = input.trim().split(' ')
+    commandAndArgs[0] = commandAndArgs[0].toLowerCase()
 
     if (commandAndArgs[0] === "clear") setTerminalLineData([])
     else if (!commands.has(commandAndArgs[0])) setTerminalLineData([...terminalLineData, ...[
       {type: LineType.Output, value: '$ ' + input},
-      {type: LineType.Output, value: "Command not found"},
+      {type: LineType.Output, value: "❌ Not such command"},
     ]])
     else setTerminalLineData([...terminalLineData, ...[
       {type: LineType.Output, value: '$ ' + input},
