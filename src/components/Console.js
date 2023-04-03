@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Terminal, { ColorMode, LineType } from 'react-terminal-ui';
+import Terminal, { ColorMode, TerminalOutput } from 'react-terminal-ui';
 
 import commands from "../commands/";
 
@@ -7,8 +7,8 @@ import "./Console.css"
 
 export default function Console () {
   const [terminalLineData, setTerminalLineData] = useState([
-    {type: LineType.Output, value: "Hello there 👋! Welcome to my portfolio."},
-    {type: LineType.Output, value: "Enter 'help' below to see available commands."},
+    <TerminalOutput>Hello there 👋! Welcome to my portfolio.</TerminalOutput>,
+    <TerminalOutput>Enter 'help' below to see available commands.</TerminalOutput>,
   ]);
 
   function executeInput(input){
@@ -17,12 +17,12 @@ export default function Console () {
 
     if (commandAndArgs[0] === "clear") setTerminalLineData([])
     else if (!commands.has(commandAndArgs[0])) setTerminalLineData([...terminalLineData, ...[
-      {type: LineType.Output, value: '$ ' + input},
-      {type: LineType.Output, value: "❌ Not such command"},
+      <TerminalOutput>{'$ ' + input}</TerminalOutput>,
+      <TerminalOutput>❌ Not such command</TerminalOutput>,
     ]])
     else setTerminalLineData([...terminalLineData, ...[
-      {type: LineType.Output, value: '$ ' + input},
-      {type: LineType.Output, value: commands.get(commandAndArgs[0])(commandAndArgs.slice(1).join(" "))}
+      <TerminalOutput>{'$ ' + input}</TerminalOutput>,
+      <TerminalOutput>{commands.get(commandAndArgs[0])(commandAndArgs.slice(1).join(" "))}</TerminalOutput>
     ]])
   }
 
